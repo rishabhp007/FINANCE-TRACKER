@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finance Dashboard</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 10px auto;
+            border-radius: 10px;
+            width: 80%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .balance {
+            color: green;
+            font-size: 24px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .income-btn { background: green; color: white; }
+        .expense-btn { background: red; color: white; }
+        .logout-btn { background: black; color: white; }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        canvas {
+            max-width: 400px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💰 Finance Tracker Dashboard</h1>
+
+    <!-- Balance Card -->
+    <div class="card">
+        <h2 class="balance">Balance: {{ balance | inr }}</h2>
+    </div>
+
+    <!-- Buttons -->
+    <div class="card">
+        <a href="/income"><button class="btn income-btn">+ Add Income</button></a>
+        <a href="/expense"><button class="btn expense-btn">- Add Expense</button></a>
+        <a href="/history"><button class="btn">View History</button></a>
+        <a href="/logout"><button class="btn logout-btn">Logout</button></a>
+    </div>
+
+    <!-- Transactions -->
+    <div class="card">
+        <h3>Recent Transactions</h3>
+        <ul>
+            {% for t in transactions %}
+            <li>
+                {{ t.type | upper }} | {{ t.category }} | {{ t.amount | inr }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Chart -->
+    <div class="card">
+        <h3>Expense Breakdown</h3>
+        <canvas id="expenseChart" data-categories='{{ categories | tojson }}' data-amounts='{{ amounts | tojson }}'></canvas>
+    </div>
+
+    <!-- Chart Script -->
+    <script>
+        const chartEl = document.getElementById('expenseChart');
+        const categories = JSON.parse(chartEl.getAttribute('data-categories') || '[]');
+        const amounts = JSON.parse(chartEl.getAttribute('data-amounts') || '[]');
+
+        const ctx = chartEl.getContext('2d');
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: categories,
+                datasets: [{
+                    label: 'Expenses (₹)',
+                    data: amounts,
+                    borderWidth: 1
+                }]
+            }
+        });
+    </script>
+
+</body>
+</html>

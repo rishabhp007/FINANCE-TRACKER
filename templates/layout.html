@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<title>Finance Tracker</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="/">Dashboard</a>
+<a href="/income">Add Income</a>
+<a href="/expense">Add Expense</a>
+<a href="/history">History</a>
+<a href="/logout">Logout</a>
+
+</nav>
+
+<div class="container">
+
+{% block main %}{% endblock %}
+
+</div>
+
+</body>
+</html>

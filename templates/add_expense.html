@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h2>Add Expense</h2>
+
+<form action="/expense" method="post">
+
+<input name="category" placeholder="Category">
+
+<input name="amount" placeholder="Amount">
+
+<input name="description" placeholder="Description">
+
+<button type="submit">Add</button>
+
+</form>
+
+{% endblock %}

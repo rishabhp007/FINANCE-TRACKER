@@ -1,0 +1,179 @@
+/* ===== Global Styles ===== */
+
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f9;
+}
+
+
+/* ===== Navigation Bar ===== */
+
+nav{
+    background:#1f2937;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 20px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#60a5fa;
+}
+
+
+/* ===== Main Container ===== */
+
+.container{
+    width:900px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+/* ===== Headings ===== */
+
+h1{
+    color:#111827;
+}
+
+h2{
+    color:#1f2937;
+}
+
+h3{
+    color:#374151;
+}
+
+
+/* ===== Forms ===== */
+
+form{
+    display:flex;
+    flex-direction:column;
+    width:350px;
+    margin:auto;
+    gap:15px;
+}
+
+input{
+    padding:10px;
+    font-size:16px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+input:focus{
+    outline:none;
+    border:1px solid #2563eb;
+}
+
+
+/* ===== Buttons ===== */
+
+button{
+    padding:10px;
+    font-size:16px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+
+/* ===== Tables ===== */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th{
+    background:#f3f4f6;
+    padding:10px;
+    text-align:left;
+}
+
+td{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+    background:#f9fafb;
+}
+
+
+/* ===== Balance Box ===== */
+
+.balance-box{
+    background:#ecfdf5;
+    border:1px solid #10b981;
+    padding:20px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.balance-box h2{
+    margin:0;
+}
+
+
+/* ===== Chart Section ===== */
+
+.chart-container{
+    width:500px;
+    margin:30px auto;
+}
+
+
+/* ===== Links ===== */
+
+a{
+    color:#2563eb;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+
+/* ===== Responsive (Mobile) ===== */
+
+@media (max-width:768px){
+
+.container{
+    width:90%;
+}
+
+form{
+    width:100%;
+}
+
+nav{
+    flex-direction:column;
+    align-items:center;
+}
+
+nav a{
+    margin:10px 0;
+}
+
+}
